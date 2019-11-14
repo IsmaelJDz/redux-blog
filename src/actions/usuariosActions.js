@@ -1,11 +1,29 @@
-// export const traerTodos = () => (dispatch) => {
-//   dispatch({
-//     type:'TRAER_USUARIOS',
-//     payload: [1,2,4]
-//   })
-// }
+import axios from "axios";
+import { TRAER_TODOS, CARGANDO, ERROR } from "../types/usuariosTypes";
 
-export const traerTodos = (payload) => ({
-  type:'TRAER_USUARIOS',
-  payload
-})
+export const traerTodos = () => async dispatch => {
+  dispatch({
+    type: CARGANDO
+  });
+
+  try {
+    const respuesta = await axios.get(
+      "https://jsonplaceholder.typicode.com/users"
+    );
+
+    dispatch({
+      type: TRAER_TODOS,
+      payload: respuesta.data
+    });
+  } catch (error) {
+    dispatch({
+      type: ERROR,
+      payload: "Algo salió mal, intente más tarde."
+    });
+  }
+};
+
+// export const traerTodos = (payload) => ({
+//   type:'TRAER_USUARIOS',
+//   payload
+// })
