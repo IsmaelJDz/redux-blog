@@ -22,8 +22,3 @@ export const traerTodos = () => async dispatch => {
     });
   }
 };
-
-// export const traerTodos = (payload) => ({
-//   type:'TRAER_USUARIOS',
-//   payload
-// })
