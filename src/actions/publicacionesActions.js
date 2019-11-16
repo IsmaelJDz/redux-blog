@@ -20,6 +20,7 @@ export const traerPorUsuario = id => async (dispatch, getState) => {
 
   // todos los usuarios del reducer se añaden a un array y se guardan en la variable usuarios_actualizados
   const usuarios_actualizados = [...usuarios];
+  console.log(usuarios_actualizados)
 
   // De todos los usuarios bucas por el id = key, va ser igual al objeto de todo lo que tiene el usuario y le añadimos la publicacion key
   usuarios_actualizados[id] = {
