@@ -11,7 +11,7 @@ class Usuarios extends Component {
   // };
 
   componentDidMount() {
-    if (!this.props.usuarios.lenght) {
+    if (!this.props.usuarios.length) {
       this.props.traerTodos();
     }
   }
