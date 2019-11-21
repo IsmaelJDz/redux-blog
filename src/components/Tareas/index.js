@@ -8,7 +8,9 @@ import * as tareasActions from "../../actions/tareasActions";
 
 class Tareas extends Component {
   componentDidMount() {
-    this.props.traerTodas();
+    if (!Object.keys(this.props.tareas).length) {
+      this.props.traerTodas();
+    }
   }
 
   mostrarContenido = () => {
@@ -48,7 +50,9 @@ class Tareas extends Component {
     return (
       <div>
         <button>
-          <Link to="/tareas/guardar">Agregar</Link>
+          <Link to="/tareas/guardar" disabled={this.deshabilitar}>
+            Agregar
+          </Link>
         </button>
         {this.mostrarContenido()}
       </div>
