@@ -49,7 +49,7 @@ export const cambioUsuarioId = usuario_id => dispatch => {
   });
 };
 
-export const cambioTtitulo = titulo => dispatch => {
+export const cambioTitulo = titulo => dispatch => {
   dispatch({
     type: CAMBIO_TITULO,
     payload: titulo
@@ -81,3 +81,7 @@ export const agregar = nueva_tarea => async dispatch => {
     payload: "Intente más tarde."
   });
 };
+
+export const editar = (tarea_editada) => (dispatch) => {
+  console.log(tarea_editada);
+}
