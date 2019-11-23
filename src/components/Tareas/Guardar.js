@@ -9,13 +9,21 @@ class Guardar extends Component {
 
   componentDidMount() {
 
-    const { match: { params: { usu_id, tar_id} }, tareas, cambioUsuarioId, cambioTitulo } = this.props;
+    const { match: { params: { usu_id, tar_id} }, 
+      tareas, 
+      cambioUsuarioId, 
+      cambioTitulo,
+      limpiarForma,
+    } = this.props;
     
     if (usu_id && tar_id) {
 			const tarea = tareas[usu_id][tar_id];
 			cambioUsuarioId(tarea.userId);
 			cambioTitulo(tarea.title);
-		}
+    }
+    else{
+      limpiarForma();
+    }
 
   }
 
@@ -24,7 +32,7 @@ class Guardar extends Component {
   };
 
   cambioTitulo = event => {
-    this.props.cambioTtitulo(event.target.value);
+    this.props.cambioTitulo(event.target.value);
   };
 
   guardar = () => {
